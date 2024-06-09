@@ -1,25 +1,22 @@
 import { motion } from "framer-motion";
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { Outlet, useParams } from "react-router-dom";
 import MenuPanel from "../components/MenuPanel";
 import useFetchUserInfo from "../hooks/useFetchUserInfo";
+import useStarterCaptionManagementStore from "../stores/useStarterCaptionManagementStore";
 import useUserInfoStore from "../stores/useUserInfoStore";
 
 function Main() {
   const param = useParams();
   const { userInfoData, error, loading } = useFetchUserInfo(param.username);
   const { userInfo, setUserInfo } = useUserInfoStore();
-  const [isMainCaptionOff, setIsMainCaptionOff] = useState(false);
+  const { isCaptionVisible } = useStarterCaptionManagementStore();
 
   useEffect(() => {
     if (userInfoData !== undefined || userInfoData !== null) {
       setUserInfo(userInfoData?.userInfo);
     }
   }, [userInfoData]);
-
-  const detectMenuSelection = () => {
-    setIsMainCaptionOff(true);
-  };
 
   if (loading) {
     return (
@@ -56,15 +53,11 @@ function Main() {
 
   return (
     <div className="flex flex-col justify-center items-center h-[80vh]">
-      {isMainCaptionOff === false ? getMainCaption() : <></>}
+      {isCaptionVisible ? getMainCaption() : <></>}
       <div className="flex flex-row justify-center mx-auto lg:w-2/4">
         <Outlet />
       </div>
-      <MenuPanel
-        config={{
-          detectMenuSelectionFn: detectMenuSelection,
-        }}
-      />
+      <MenuPanel />
     </div>
   );
 }

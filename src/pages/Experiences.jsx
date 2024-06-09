@@ -1,10 +1,16 @@
-import React from "react";
+import React, { useEffect } from "react";
 import DataContainer from "../components/DataContainer";
 import InfoCard from "../components/InfoCard";
+import useStarterCaptionManagementStore from "../stores/useStarterCaptionManagementStore";
 import useUserInfoStore from "../stores/useUserInfoStore";
 
 function Experiences() {
   const { userInfo } = useUserInfoStore();
+  const { setCaptionFlag } = useStarterCaptionManagementStore();
+
+  useEffect(() => {
+    setCaptionFlag(false);
+  }, []);
 
   const getWorkHistory = () => {
     if (userInfo !== undefined) {

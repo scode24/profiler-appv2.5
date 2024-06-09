@@ -1,10 +1,16 @@
-import React from "react";
+import React, { useEffect } from "react";
 import DataContainer from "../components/DataContainer";
 import InfoCard from "../components/InfoCard";
+import useStarterCaptionManagementStore from "../stores/useStarterCaptionManagementStore";
 import useUserInfoStore from "../stores/useUserInfoStore";
 
 function About() {
   const { userInfo } = useUserInfoStore();
+  const { setCaptionFlag } = useStarterCaptionManagementStore();
+
+  useEffect(() => {
+    setCaptionFlag(false);
+  }, [userInfo]);
 
   const getOverview = () => {
     if (userInfo !== undefined) {
