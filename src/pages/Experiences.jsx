@@ -10,7 +10,7 @@ function Experiences() {
 
   useEffect(() => {
     setCaptionFlag(false);
-  }, []);
+  }, [userInfo]);
 
   const getWorkHistory = () => {
     if (userInfo !== undefined) {
