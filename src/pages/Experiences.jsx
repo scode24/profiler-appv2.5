@@ -34,6 +34,28 @@ function Experiences() {
     }
   };
 
+  const getAchievements = () => {
+    if (userInfo !== undefined) {
+      const achievements = userInfo.achievements;
+
+      if (achievements.length > 0) {
+        return achievements.map((item, index) => {
+          return (
+            <InfoCard
+              key={index}
+              config={{
+                title: item.name,
+                rightTitle: item.issuingCompany + " | " + item.issuingYear,
+                data: item.reason,
+                renderPage: "achievement",
+              }}
+            />
+          );
+        });
+      }
+    }
+  };
+
   return (
     <DataContainer
       config={{
@@ -42,6 +64,10 @@ function Experiences() {
           {
             name: "Work History",
             data: getWorkHistory(),
+          },
+          {
+            name: "Achievements",
+            data: getAchievements(),
           },
         ],
       }}

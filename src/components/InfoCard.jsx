@@ -6,10 +6,10 @@ import {
 } from "@fortawesome/free-brands-svg-icons";
 import {
   faAddressBook,
+  faAward,
   faBuilding,
   faCube,
   faPhone,
-  faShield,
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React, { useState } from "react";
@@ -23,7 +23,7 @@ function InfoCard(props) {
       case "company":
         return <FontAwesomeIcon icon={faBuilding} />;
       case "achievement":
-        return <FontAwesomeIcon icon={faShield} />;
+        return <FontAwesomeIcon icon={faAward} />;
     }
 
     title = title.toLowerCase();
@@ -64,7 +64,7 @@ function InfoCard(props) {
         <div className="flex flex-col justify-center items-center w-full">
           <div className="flex flex-row justify-between w-full">
             <span className="text-xl sm:text2xl">{title}</span>
-            <span className="font-light text-xl sm:text2xl">
+            <span className="font-light text-md sm:text2xl">
               {rightTitle !== undefined ? rightTitle : ""}
             </span>
           </div>
