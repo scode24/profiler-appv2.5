@@ -15,8 +15,8 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React, { useState } from "react";
 
 function InfoCard(props) {
-  const [isClosed, setIsClosed] = useState(false);
   const { title, rightTitle, data, renderPage } = props.config;
+  const [isClosed, setIsClosed] = useState(false);
 
   const getIcon = (title) => {
     switch (renderPage) {

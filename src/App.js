@@ -4,6 +4,7 @@ import Header from "./components/Header";
 import About from "./pages/About";
 import Experiences from "./pages/Experiences";
 import Main from "./pages/Main";
+import Skills from "./pages/Skills";
 import Starter from "./pages/Starter";
 
 function App() {
@@ -15,6 +16,7 @@ function App() {
         <Route exact path="/:username" element={<Main />}>
           <Route path="about" element={<About />} />
           <Route path="experiences" element={<Experiences />} />
+          <Route path="skills" element={<Skills />} />
         </Route>
       </Routes>
     </BrowserRouter>
