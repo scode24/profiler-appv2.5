@@ -25,7 +25,7 @@ function Experiences() {
                 title: item.name,
                 rightTitle: item.workingYears,
                 data: item.experience,
-                renderPage: "company",
+                renderPage: "office",
               }}
             />
           );

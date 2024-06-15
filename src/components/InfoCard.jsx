@@ -1,54 +1,15 @@
-import {
-  faFacebook,
-  faGithub,
-  faLinkedin,
-  faTwitter,
-} from "@fortawesome/free-brands-svg-icons";
-import {
-  faAddressBook,
-  faAward,
-  faBuilding,
-  faCube,
-  faPhone,
-} from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React, { useState } from "react";
+import { getIcons, getSkillIcons } from "../icons/IconsSource";
 
 function InfoCard(props) {
   const { title, rightTitle, data, renderPage } = props.config;
   const [isClosed, setIsClosed] = useState(false);
 
-  const getIcon = (title) => {
-    switch (renderPage) {
-      case "company":
-        return <FontAwesomeIcon icon={faBuilding} />;
-      case "achievement":
-        return <FontAwesomeIcon icon={faAward} />;
-    }
-
-    title = title.toLowerCase();
-    switch (title) {
-      case "address":
-        return <FontAwesomeIcon icon={faAddressBook} />;
-
-      case "phone number":
-        return <FontAwesomeIcon icon={faPhone} />;
-
-      case "github":
-        return <FontAwesomeIcon icon={faGithub} />;
-
-      case "facebook":
-        return <FontAwesomeIcon icon={faFacebook} />;
-
-      case "linkedin":
-        return <FontAwesomeIcon icon={faLinkedin} />;
-
-      case "twitter":
-        return <FontAwesomeIcon icon={faTwitter} />;
-
-      default:
-        return <FontAwesomeIcon icon={faCube} />;
-    }
+  const getContentIcon = (title) => {
+    if (renderPage === "achievement") return getIcons("achievement");
+    if (renderPage === "office") return getIcons("office");
+    if (renderPage === "skill") return getSkillIcons(title);
+    return getIcons(title);
   };
 
   const handleClick = () => {
@@ -59,11 +20,11 @@ function InfoCard(props) {
     <div className="flex flex-col cursor-pointer" onClick={() => handleClick()}>
       <div className="flex flex-row border-b p-2">
         <div className="flex flex-col justify-center items-center text-xl mr-3  sm:text-2xl">
-          {getIcon(title)}
+          {getContentIcon(title)}
         </div>
         <div className="flex flex-col justify-center items-center w-full">
-          <div className="flex flex-row justify-between w-full">
-            <span className="text-xl sm:text2xl">{title}</span>
+          <div className="flex flex-col justify-between w-full sm:flex-row sm:justify-between">
+            <span className="text-lg sm:text2xl">{title}</span>
             <span className="font-light text-md sm:text2xl">
               {rightTitle !== undefined ? rightTitle : ""}
             </span>

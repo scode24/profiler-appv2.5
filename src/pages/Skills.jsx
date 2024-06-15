@@ -23,6 +23,7 @@ function Skills() {
               config={{
                 title: item.skillName,
                 isDescClosed: true,
+                renderPage: "skill",
               }}
             />
           );
