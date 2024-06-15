@@ -4,6 +4,7 @@ import Header from "./components/Header";
 import About from "./pages/About";
 import Experiences from "./pages/Experiences";
 import Main from "./pages/Main";
+import Projects from "./pages/Projects";
 import Skills from "./pages/Skills";
 import Starter from "./pages/Starter";
 
@@ -17,6 +18,7 @@ function App() {
           <Route path="about" element={<About />} />
           <Route path="experiences" element={<Experiences />} />
           <Route path="skills" element={<Skills />} />
+          <Route path="projects" element={<Projects />} />
         </Route>
       </Routes>
     </BrowserRouter>

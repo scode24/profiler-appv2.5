@@ -49,7 +49,7 @@ function DataContainer(props) {
       </div>
       <div className="flex flex-row py-5 w-full overflow-auto sm:py-7">
         {topics.map((item, index) => {
-          return (
+          return item.name != "" ? (
             <button
               className="text-nowrap text-xs px-2 py-1 rounded-3xl border-[1px] mr-2 w-[120px] hover:border-blue-700 hover:border-[2px] sm:text-sm"
               key={index}
@@ -57,6 +57,8 @@ function DataContainer(props) {
             >
               {item.name}
             </button>
+          ) : (
+            <></>
           );
         })}
       </div>
@@ -66,9 +68,14 @@ function DataContainer(props) {
       >
         {currentContent}
       </div>
-      <div className="flex flex-row justify-center text-sm text-gray-500 py-3">
-        {hasScrollbar ? <span>Scroll down for more information</span> : <></>}
-      </div>
+
+      {hasScrollbar ? (
+        <div className="flex flex-row justify-center text-sm border-t text-gray-500 py-3">
+          <span>Scroll down for more information</span>
+        </div>
+      ) : (
+        <></>
+      )}
     </motion.div>
   );
 }
