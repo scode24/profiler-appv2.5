@@ -18,7 +18,7 @@ function Projects() {
         title: "Projects",
         topics: [
           {
-            name: "Projects",
+            name: "Item View",
             data: <ProjectDataContainer />,
           },
         ],

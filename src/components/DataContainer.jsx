@@ -64,7 +64,7 @@ function DataContainer(props) {
       </div>
       <div
         ref={contentRef}
-        className="text-xs h-[65%] overflow-auto sm:text-sm sm:px-[10px]"
+        className="text-xs h-[70%] overflow-auto sm:text-sm sm:px-[10px]"
       >
         {currentContent}
       </div>

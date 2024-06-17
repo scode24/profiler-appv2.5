@@ -18,10 +18,21 @@ function ProjectDataContainer() {
   useEffect(() => {}, [userInfo]);
 
   const handleOptionClick = (option) => {
-    if (option === "next" || option === "prev") setSelectedOption("image");
-    if (option === "live") window.open(userInfo.projects[projectIndex].liveUrl);
-    if (option === "github")
+    let index = projectIndex;
+    if (option === "next") {
+      setProjectIndex(++index);
+      setSelectedOption("image");
+    } else if (option === "prev") {
+      let index = projectIndex;
+      setProjectIndex(--index);
+      setSelectedOption("image");
+    } else if (option === "live") {
+      window.open(userInfo.projects[projectIndex].liveUrl);
+    } else if (option === "github") {
       window.open(userInfo.projects[projectIndex].githubLink);
+    } else {
+      setSelectedOption(option);
+    }
   };
 
   const getOptionContent = () => {
@@ -34,7 +45,15 @@ function ProjectDataContainer() {
         />
       );
 
-    if (selectedOption === "demo") return <>Demo</>;
+    if (selectedOption === "demo")
+      return (
+        <video
+          className="mx-auto"
+          controls
+          width="90%"
+          src={userInfo.projects[projectIndex].demoUrl}
+        />
+      );
   };
 
   const getOptions = () => {
@@ -121,7 +140,10 @@ function ProjectDataContainer() {
               {userInfo.projects[projectIndex].techStackList.map(
                 (item, index) => {
                   return (
-                    <div className="flex flex-col justify-center text-xs rounded-md min-w-fit p-1 mx-1 bg-gray-200 sm:text-sm">
+                    <div
+                      key={index}
+                      className="flex flex-col justify-center text-xs rounded-md min-w-fit p-1 mx-1 bg-gray-200 sm:text-sm"
+                    >
                       {item}
                     </div>
                   );
