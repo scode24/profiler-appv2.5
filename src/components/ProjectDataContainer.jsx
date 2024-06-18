@@ -85,32 +85,44 @@ function ProjectDataContainer() {
           <></>
         )}
 
-        <BoxButton
-          config={{
-            tag: "demo",
-            icon: <FontAwesomeIcon icon={faVideo} />,
-            text: "Demo",
-            handleOptionClickFn: handleOptionClick,
-          }}
-        />
+        {userInfo.projects[projectIndex].demoUrl !== "" ? (
+          <BoxButton
+            config={{
+              tag: "demo",
+              icon: <FontAwesomeIcon icon={faVideo} />,
+              text: "Demo",
+              handleOptionClickFn: handleOptionClick,
+            }}
+          />
+        ) : (
+          <></>
+        )}
 
-        <BoxButton
-          config={{
-            tag: "live",
-            icon: <FontAwesomeIcon icon={faGlobe} />,
-            text: "Live",
-            handleOptionClickFn: handleOptionClick,
-          }}
-        />
+        {userInfo.projects[projectIndex].liveUrl !== "" ? (
+          <BoxButton
+            config={{
+              tag: "live",
+              icon: <FontAwesomeIcon icon={faGlobe} />,
+              text: "Live",
+              handleOptionClickFn: handleOptionClick,
+            }}
+          />
+        ) : (
+          <></>
+        )}
 
-        <BoxButton
-          config={{
-            tag: "github",
-            icon: <FontAwesomeIcon icon={faGithub} />,
-            text: "GitHub",
-            handleOptionClickFn: handleOptionClick,
-          }}
-        />
+        {userInfo.projects[projectIndex].githubLink !== "" ? (
+          <BoxButton
+            config={{
+              tag: "github",
+              icon: <FontAwesomeIcon icon={faGithub} />,
+              text: "GitHub",
+              handleOptionClickFn: handleOptionClick,
+            }}
+          />
+        ) : (
+          <></>
+        )}
       </>
     );
   };
