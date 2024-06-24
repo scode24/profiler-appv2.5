@@ -18,9 +18,7 @@ function Header() {
       <div className="flex flex-col justify-center cursor-pointer">
         <FontAwesomeIcon
           icon={faGithub}
-          onClick={() =>
-            window.open("https://github.com/scode24/profiler-appv2.5")
-          }
+          onClick={() => window.open(process.env.REACT_APP_GITHUB_SOURCE)}
         />
       </div>
     </div>
