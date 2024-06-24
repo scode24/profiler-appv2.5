@@ -15,8 +15,13 @@ function Header() {
       >
         <FontAwesomeIcon icon={faTerminal} />
       </div>
-      <div className="flex flex-col justify-center">
-        <FontAwesomeIcon icon={faGithub} />
+      <div className="flex flex-col justify-center cursor-pointer">
+        <FontAwesomeIcon
+          icon={faGithub}
+          onClick={() =>
+            window.open("https://github.com/scode24/profiler-appv2.5")
+          }
+        />
       </div>
     </div>
   );
