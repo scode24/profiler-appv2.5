@@ -37,12 +37,14 @@ function ProjectDataContainer() {
 
   const getOptionContent = () => {
     if (selectedOption === "image")
-      return (
+      return userInfo.projects[projectIndex].captionUrl !== "" ? (
         <img
           className="w-full" //h-[130px] sm:h-[135px] md:h-[260px] lg:h-[170px] xl:h-[250px]
           src={userInfo.projects[projectIndex].captionUrl}
           alt="project-caption"
         />
+      ) : (
+        <></>
       );
 
     if (selectedOption === "demo")
@@ -128,15 +130,15 @@ function ProjectDataContainer() {
   };
 
   return userInfo !== undefined ? (
-    <div className="flex flex-col">
+    <div className="flex flex-col shadow-inner">
       <div className="flex flex-col border px-2 sm:flex-row sm:justify-between">
-        <div className="flex flex-col justify-center font-bold p-2 border-b sm:border-none">
+        <div className="flex flex-col justify-center font-bold p-2 sm:border-none">
           {userInfo.projects[projectIndex].projectName}
         </div>
         <div className="flex flex-row justify-center">{getOptions()}</div>
       </div>
 
-      <div className="flex flex-col border">
+      <div className="flex flex-col border-x border-b">
         <div>{getOptionContent()}</div>
 
         <p className="p-3 text-justify">

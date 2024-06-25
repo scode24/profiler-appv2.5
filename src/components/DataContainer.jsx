@@ -36,8 +36,8 @@ function DataContainer(props) {
     <motion.div
       className="flex flex-col rounded-2xl border-[1px] bg-white shadow-lg p-5 w-full h-[90vh]"
       initial={{ y: "70%" }}
-      animate={{ y: 20 }}
-      transition={{ type: "spring", duration: "2s", stiffness: 70 }}
+      animate={{ y: 30 }}
+      transition={{ type: "spring", duration: 0.5, ease: "easeOut" }}
     >
       <div className="flex flex-row text-2xl sm:text-3xl">
         <div className="flex flex-col justify-center mr-3 text-2xl text-blue-700">
@@ -64,7 +64,7 @@ function DataContainer(props) {
       </div>
       <div
         ref={contentRef}
-        className="text-xs h-[70%] overflow-auto sm:text-sm sm:px-[10px]"
+        className="text-xs h-[70%] overflow-auto sm:text-sm sm:px-[10px] md:h-[55%] lg:h-[60%] 2xl:h-[67%]"
       >
         {currentContent}
       </div>

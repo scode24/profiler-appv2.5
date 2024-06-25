@@ -54,7 +54,7 @@ function Main() {
   return (
     <div className="flex flex-col justify-center items-center h-[80vh]">
       {isCaptionVisible ? getMainCaption() : <></>}
-      <div className="flex flex-row justify-center mx-auto lg:w-2/4">
+      <div className="flex flex-row justify-center mx-auto w-full lg:w-2/4">
         <Outlet />
       </div>
       <MenuPanel />

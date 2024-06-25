@@ -12,11 +12,11 @@ function MenuPanel() {
   };
 
   return (
-    <div className="absolute bottom-0 z-10 w-full h-[120px] border-t-[1px] bg-white">
+    <div className="absolute bottom-0 z-10 w-full h-[70px] border-t-[1px] bg-white md:h-[120px]">
       <div className="relative top-[-30px] flex flex-row justify-center sm:top-[-35px]">
         <CircularButton
           config={{
-            title: "About",
+            title: "About Me",
             tag: "about",
             isSelected: selectedButton === "about",
             handleMenuSelectionFn: handleMenuSelection,
