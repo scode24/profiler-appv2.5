@@ -1,70 +1,144 @@
-# Getting Started with Create React App
+# Profiler App 2.5
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Overview
 
-## Available Scripts
+Profiler App 2.5 is a dynamic application that allows users to create, update, and manage their profile data through a REST API. The app generates a visually appealing portfolio-style profile using the provided data. The admin panel is accessible via Postman and features JWT authentication alongside Spring Boot Security authentication. The application utilizes React.js for the frontend, Spring Boot for the backend REST API, and MongoDB for the database.
 
-In the project directory, you can run:
+**Live link**: https://www.profilerapp.in/ssarkar
 
-### `npm start`
+## Features
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- **User Profiles**: Create and update user profiles via REST API.
+- **Portfolio Generation**: Generate a portfolio-style profile based on user data.
+- **Admin Panel**: Accessible via Postman with JWT and Spring Boot Security authentication.
+- **Technology Stack**:
+  - Frontend: React.js
+  - Backend: Spring Boot (REST API)
+  - Database: MongoDB
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Table of Contents
 
-### `npm test`
+- [Installation](#installation)
+- [Usage](#usage)
+  - [User Endpoints](#user-endpoints)
+  - [Admin Endpoints](#admin-endpoints)
+- [Authentication](#authentication)
+  - [JWT Authentication](#jwt-authentication)
+  - [Spring Boot Security](#spring-boot-security)
+- [Technology Stack](#technology-stack)
+- [Contributing](#contributing)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Installation
 
-### `npm run build`
+1. **Clone the repository**:
+    ```bash
+    git clone https://github.com/yourusername/profiler-app2.5.git
+    ```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+2. **Navigate to the project directory**:
+    ```bash
+    cd profiler-app2.5
+    ```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+3. **Backend setup**:
+    - Navigate to the backend directory:
+      ```bash
+      cd backend
+      ```
+    - Install dependencies:
+      ```bash
+      mvn install
+      ```
+    - Run the backend server:
+      ```bash
+      mvn spring-boot:run
+      ```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+4. **Frontend setup**:
+    - Navigate to the frontend directory:
+      ```bash
+      cd ../frontend
+      ```
+    - Install dependencies:
+      ```bash
+      npm install
+      ```
+    - Run the frontend server:
+      ```bash
+      npm start
+      ```
 
-### `npm run eject`
+5. **MongoDB setup**:
+    - Ensure MongoDB is installed and running on your machine.
+    - Configure the MongoDB connection in the backend application properties.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## Usage
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### User Endpoints
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+- **Create Profile**
+    ```http
+    GET http://89.116.33.28:8181/user/api/v1/fetchUserInfo/<USERNAME>
+    ```
+- **Get Profiles**
+    - Get user profiles through REST endpoints.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+### Admin Endpoints
 
-## Learn More
+- **Access Admin Panel**
+    ```http
+    POST http://89.116.33.28:8181/admin/api/v1/saveUserInfo
+    ```
+    - Requires JWT token in the request header.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+- **Update/save Profiles**
+    - Update/save user profiles through REST endpoints.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Authentication
 
-### Code Splitting
+### JWT Authentication
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+- **Generate Token**:
+    - Endpoint:
+      ```http
+      POST http://89.116.33.28:8181/jwt/auth
+      ```
+    - Request Body:
+      ```json
+      {
+        "username": "uname",
+        "password": "pwd"
+      }
+      ```
+    - Response:
+      ```json
+      {
+        "token": "your.jwt.token.here"
+      }
+      ```
 
-### Analyzing the Bundle Size
+- **Use Token**:
+    - Include the token in the Authorization header for authenticated requests:
+      ```http
+      Authorization: Bearer your.jwt.token.here
+      ```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+### Spring Boot Security
 
-### Making a Progressive Web App
+- Spring Boot Security is configured to secure the endpoints and manage user roles and permissions.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+## Technology Stack
 
-### Advanced Configuration
+- **Frontend**: React.js
+- **Backend**: Spring Boot (REST API)
+- **Database**: MongoDB
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+## Contributing
 
-### Deployment
+We welcome contributions to the Profiler App 2.5 project. Please follow these steps to contribute:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+1. Fork the repository.
+2. Create a new branch for your feature or bugfix.
+3. Commit your changes.
+4. Push to your branch.
+5. Create a pull request.
