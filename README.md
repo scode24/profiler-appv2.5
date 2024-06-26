@@ -4,7 +4,7 @@
 
 Profiler App 2.5 is a dynamic application that allows users to create, update, and manage their profile data through a REST API. The app generates a visually appealing portfolio-style profile using the provided data. The admin panel is accessible via Postman and features JWT authentication alongside Spring Boot Security authentication. The application utilizes React.js for the frontend, Spring Boot for the backend REST API, and MongoDB for the database.
 
-**Live link**: https://www.profilerapp.in OR https://www.profilerapp.in/<USERNAME>
+**Live link**: https://www.profilerapp.in OR [https://www.profilerapp.in/<USERNAME>]
 
 ## Features
 
